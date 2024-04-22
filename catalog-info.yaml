@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: chilly-skunk-python-gitops
+  description: This is GitOps manifest for chilly-skunk-python   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: chilly-skunk-python
+    janus-idp.io/tekton: chilly-skunk-python 
+    backstage.io/kubernetes-id: chilly-skunk-python 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:chilly-skunk-python
